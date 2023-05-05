@@ -6,4 +6,4 @@ metadata:
     github.com/project-slug: web3mining/nft-collection
 spec:
   type: other
-  lifecycle: unknown
+  lifecycle: production
