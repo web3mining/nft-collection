@@ -460,10 +460,10 @@ Item metadata
 
 ## Status Workers
 
-- Active
-- Unstable
-- Inactive
-- Dead
+- 🟢 Active
+- ⚪ Inactive
+- 🟡 Unstable
+- 🔴 Dead
 
 | #   | Worker         | SN    | NFTs |
 | --- | -------------- | ----- | ---- |
