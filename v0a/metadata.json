@@ -3,6 +3,7 @@
     "name": "Web3mining dev0.1",
     "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
     "social_links": [
-        "https://t.me/web3mining_bot"
+        "https://t.me/web3mining_bot",
+        "https://github.com/web3mining"
     ]
 }
