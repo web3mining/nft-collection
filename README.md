@@ -1,4 +1,12 @@
-# Web3Mining NFT
+# W3M NFT
+
+```
+
+▒█░░▒█ █▀▀█ ▒█▀▄▀█ 　 ▒█▄░▒█ ▒█▀▀▀ ▀▀█▀▀
+▒█▒█▒█ ░░▀▄ ▒█▒█▒█ 　 ▒█▒█▒█ ▒█▀▀▀ ░▒█░░
+▒█▄▀▄█ █▄▄█ ▒█░░▒█ 　 ▒█░░▀█ ▒█░░░ ░▒█░░
+
+```
 
 # Disclamer
 
@@ -6,7 +14,7 @@ While Bitcoin mining sounds appealing, the reality is that it’s difficult and 
 
 Your return is based on selling it to someone else for a higher price, and that price may not be high enough for you to turn a profit.
 
-## What is Web3Mining?
+## What is W3M?
 
 Web3Mining belongs to the third evolution of web technologies and includes decentralized applications running on The Open Network, Bitcoin mining, including non-interchangeable tokens ("NFT"), cryptocurrencies and Metaverse.
 
