@@ -1,19 +1,19 @@
 {
-    "name": "Worker #0003",
+    "name": "Worker M50 Part 3",
     "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
-    "image": "https://raw.githubusercontent.com/web3mining/dns/main/domain.jpg",
+    "image": "https://raw.githubusercontent.com/web3mining/dns/main/offline.png",
     "attributes": [
         {
             "trait_type": "Hashrate",
-            "value": 120
+            "value": 79.07
         },
         {
-            "trait_type": "",
-            "value": ""
+            "trait_type": "Power",
+            "value": 3450
         },
         {
-            "trait_type": "",
-            "value": ""
+            "trait_type": "Status",
+            "value": "Offline"
         },
         {
             "trait_type": "",
