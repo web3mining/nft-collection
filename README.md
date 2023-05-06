@@ -22,7 +22,7 @@ As prices of cryptocurrencies and Bitcoin in particular have skyrocketed in rece
 - Creating Bitcoin consumes 121 terawatt-hours of electricity each year, more than is used by the Netherlands or the Philippines, according to the Cambridge Bitcoin Electricity Consumption Index.
 - It would take nine years of household-equivalent electricity to mine a single bitcoin as of August 2021.
 - The price of Bitcoin has been extremely volatile over time. In 2020, it traded as low as $4,107 and reached an all-time high of $68,790 in November 2021. As of May 2023, it traded for about $29,100.
-- While it depends on your computing power and that of other miners, the odds of a modestly powered solo miner solving a Bitcoin hash were about 1 in 26.9 million in January 2023.
+- While it depends on your Worker power and that of other miners, the odds of a modestly powered solo miner solving a Bitcoin hash were about 1 in 26.9 million in January 2023.
 - The United States (37.4 percent), Mainland China (18.1 percent) and Kazakhstan (14.0 percent) were the largest bitcoin miners as of January 2022, according to the Cambridge Electricity Consumption Index.
 
 ### Understanding Bitcoin
@@ -35,7 +35,7 @@ Bitcoin is powered by blockchain, which is the technology that powers many crypt
 
 In order to successfully add a block, Bitcoin miners compete to solve extremely complex math problems that require the use of expensive computers and enormous amounts of electricity. To complete the mining process, miners must be first to arrive at the correct or closest answer to the question. The process of guessing the correct number (hash) is known as proof of work. Miners guess the target hash by randomly making as many guesses as quickly as they can, which requires major computing power. The difficulty only increases as more miners join the network.
 
-The computer hardware required is known as application-specific integrated circuits, or ASICs, and can cost up to $10,000.
+The Worker hardware required is known as application-specific integrated circuits, or ASICs, and can cost up to $10,000.
 
 If a miner is able to successfully add a block to the blockchain, they will receive 6.25 bitcoins as a reward. The reward amount is cut in half roughly every four years, or every 210,000 blocks. As of May 2023, Bitcoin traded at around $29,100, making 6.25 bitcoins worth $182,000.
 
@@ -144,7 +144,7 @@ The incentive may help encourage nodes to stay honest. If a greedy attacker is a
 
 ## Reclaiming Disk Space
 
-Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block's hash, transactions are hashed in a Merkle Tree [^7] [^2] [^5], with only the root included in the block's hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.
+Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block's hash, transactions are hashed in a Merkle Tree, with only the root included in the block's hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.
 
 ```
 ┌──────────────────────────────────────────┐    ┌──────────────────────────────────────────┐
@@ -190,6 +190,10 @@ NFT Standard: [TEP-62](https://github.com/ton-blockchain/TEPs/blob/master/text/0
 
 Each NFT Item and NFT Collection itself has its own metadata (TEP-62). It contains some info about NFT, such as title and associated image.
 
+Each NFT token contains, in addition to the image, data that allows us to determine the rarity, value and, most importantly, the Worker power of each NFT.
+
+NFT metadata is a json file describing all the parameters of your token, written to the blockchain and confirming your ownership. The metadata stores the name of the NFT, the link to the NFT on the site, the link to the image, the collection, and the attribute names.
+
 Collection metadata
 
 ```json
@@ -205,11 +209,20 @@ Item metadata
 
 ```json
 {
-  "name": "TON Smart Challenge #2 Winners Trophy",
-  "description": "TON Smart Challenge #2 Winners Trophy 1 place out of 181",
-  "image": "https://ton.org/_next/static/media/duck.d936efd9.png",
-  "content_url": "https://ton.org/_next/static/media/dimond_1_VP9.29bcaf8e.webm",
-  "attributes": []
+  "name": "Worker #0001", // NFT's unique worker name
+  "description": "",
+  "image": "ipfs://*", // link to image
+  "attributes": [
+    // list of all the traits there are X attributes and up to N different values assigned to each of them, which give us over X~N trillion possible combinations
+    {
+      "trait_type": "Hashrate", // NFT's Worker Hashrate
+      "value": 120 // value in TH/s
+    },
+    {
+      "trait_type": "Power On Wall",
+      "value": 3480 // value in Watt
+    }
+  ]
 }
 ```
 
