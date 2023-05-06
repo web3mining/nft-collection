@@ -4,9 +4,7 @@
 
 While Bitcoin mining sounds appealing, the reality is that it’s difficult and expensive to actually do profitably. The extreme volatility of Bitcoin’s price adds more uncertainty to the equation.
 
-Keep in mind that Bitcoin itself is a speculative asset with no intrinsic value, which means it won’t produce anything for its owner and isn’t pegged to something like gold. Your return is based on selling it to someone else for a higher price, and that price may not be high enough for you to turn a profit.
-
->
+Your return is based on selling it to someone else for a higher price, and that price may not be high enough for you to turn a profit.
 
 ## What is Web3Mining?
 
@@ -14,7 +12,7 @@ Web3Mining belongs to the third evolution of web technologies and includes decen
 
 Bitcoin mining is the process of creating new bitcoins by solving extremely complicated math problems that verify transactions in the currency. When a bitcoin is successfully mined, the miner receives a predetermined amount of bitcoin.
 
-> Bitcoin is a cryptocurrency that’s gained wide popularity due to its wild price swings and surging value since it was first created in 2009.
+> Bitcoin is a cryptocurrency that’s gained wide popularity due to its surging value since it was first created in 2009.
 
 As prices of cryptocurrencies and Bitcoin in particular have skyrocketed in recent years, it’s understandable that interest in mining has picked up as well. But for most people, the prospects for Bitcoin mining are not good due to its complex nature and high costs. Here are the basics on how Bitcoin mining works and some key risks to be aware of.
 
@@ -37,7 +35,7 @@ Bitcoin is powered by blockchain, which is the technology that powers many crypt
 
 In order to successfully add a block, Bitcoin miners compete to solve extremely complex math problems that require the use of expensive computers and enormous amounts of electricity. To complete the mining process, miners must be first to arrive at the correct or closest answer to the question. The process of guessing the correct number (hash) is known as proof of work. Miners guess the target hash by randomly making as many guesses as quickly as they can, which requires major computing power. The difficulty only increases as more miners join the network.
 
-The computer hardware required is known as application-specific integrated circuits, or ASICs, and can cost up to $10,000. ASICs consume huge amounts of electricity, which has drawn criticism from environmental groups and limits the profitability of miners.
+The computer hardware required is known as application-specific integrated circuits, or ASICs, and can cost up to $10,000.
 
 If a miner is able to successfully add a block to the blockchain, they will receive 6.25 bitcoins as a reward. The reward amount is cut in half roughly every four years, or every 210,000 blocks. As of May 2023, Bitcoin traded at around $29,100, making 6.25 bitcoins worth $182,000.
 
@@ -77,11 +75,11 @@ We define an electronic coin as a chain of digital signatures. Each owner transf
 
 The problem of course is the payee can't verify that one of the owners did not double-spend the coin. A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending. After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent. The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.
 
-We need a way for the payee to know that the previous owners did not sign any earlier transactions. For our purposes, the earliest transaction is the one that counts, so we don't care about later attempts to double-spend. The only way to confirm the absence of a transaction is to be aware of all transactions. In the mint based model, the mint was aware of all transactions and decided which arrived first. To accomplish this without a trusted party, transactions must be publicly announced [^1], and we need a system for participants to agree on a single history of the order in which they were received. The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.
+We need a way for the payee to know that the previous owners did not sign any earlier transactions. For our purposes, the earliest transaction is the one that counts, so we don't care about later attempts to double-spend. The only way to confirm the absence of a transaction is to be aware of all transactions. In the mint based model, the mint was aware of all transactions and decided which arrived first. To accomplish this without a trusted party, transactions must be publicly announced, and we need a system for participants to agree on a single history of the order in which they were received. The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.
 
 ## Timestamp Server
 
-The solution we propose begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [^2] [^3] [^4] [^5]. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.
+The solution begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.
 
 ```
              ┌──────┐                        ┌──────┐
@@ -101,9 +99,9 @@ The solution we propose begins with a timestamp server. A timestamp server works
 
 ## Proof-of-Work
 
-To implement a distributed timestamp server on a peer-to-peer basis, we will need to use a proof-of-work system similar to Adam Back's Hashcash [6], rather than newspaper or Usenet posts. The proof-of-work involves scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits. The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.
+To implement a distributed timestamp server on a peer-to-peer basis, we will need to use a proof-of-work system similar to Adam Back's Hashcash, rather than newspaper or Usenet posts. The proof-of-work involves scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits. The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.
 
-For our timestamp network, we implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits. Once the CPU effort has been expended to make it satisfy the proof-of-work, the block cannot be changed without redoing the work. As later blocks are chained after it, the work to change the block would include redoing all the blocks after it.
+For BTC timestamp network, implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits. Once the CPU effort has been expended to make it satisfy the proof-of-work, the block cannot be changed without redoing the work. As later blocks are chained after it, the work to change the block would include redoing all the blocks after it.
 
 ```
        ┌────────────────────────────────────────┐      ┌────────────────────────────────────────┐
@@ -124,8 +122,6 @@ The proof-of-work also solves the problem of determining representation in major
 To compensate for increasing hardware speed and varying interest in running nodes over time, the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour. If they're generated too fast, the difficulty increases.
 
 ## Network
-
-The steps to run the network are as follows:
 
 1. New transactions are broadcast to all nodes.
 2. Each node collects new transactions into a block.
