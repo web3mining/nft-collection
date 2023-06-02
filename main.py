@@ -45,15 +45,16 @@ def formJson(worker_data, date_data):
             print(traceback.format_exc())
             return None
 
-    json_pattern = {"name": f"Worker {worker_data['worker']}",
-                    "description": "Произвольный текст",
+    json_pattern = {"image": "https://raw.githubusercontent.com/web3mining/dns/main/domain.jpg",
+                    "name": f"W3M Worker {worker_data['worker']}",
+                    "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
                     "attributes": [
                         {
                             "trait_type": "Hashrate",
                             "value": f"{convertHashrate(worker_data['hashrate'])} TH/s",
                         },
                         {
-                            "trait_type": "24h",
+                            "trait_type": "Hashrate 24h",
                             "value": f"{convertHashrate(worker_data['hashrate24h'])} TH/s"
                         },
                         {
@@ -61,18 +62,20 @@ def formJson(worker_data, date_data):
                             "value": "Active" if worker_data['active'] == 1 else 'Inactive'
                         },
                         {
-                            "trait_type": "Income BTC/24h",
-                            "value": "{:.9f}".format(round(date_data['income'][0]['income']/90, 9))
+                            "trait_type": "Income",
+                            "value": "{:.8f} BTC/24h".format(round(date_data['income'][0]['income']/90, 9))
                         },
                         {
-                            "trait_type": "Date",
+                            "trait_type": "Date income",
                             "value": date_data['income'][0]['gmt_time']
                         },
                         {
                             "trait_type": "Rewards type",
                             "value": 'fpps'
                         }
-                    ]
+                    ],
+                    "content_url": "https://raw.githubusercontent.com/web3mining/nft-collection/main/v0/video.mp4",
+                    "content_type": "video/mp4"
                     }
 
     return json_pattern
@@ -101,7 +104,7 @@ def main():
                     counter += 9
         except:
             print(traceback.format_exc())
-        time.sleep(10)
+        time.sleep(3600)
 
 
 if __name__ == '__main__':
