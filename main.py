@@ -45,7 +45,7 @@ def formJson(worker_data, date_data):
             print(traceback.format_exc())
             return None
 
-    json_pattern = {"image": "https://raw.githubusercontent.com/web3mining/dns/main/domain.jpg",
+    json_pattern = {"image": "https://github.com/web3mining/nft-collection/blob/main/wm_m50_active_optim.gif",
                     "name": f"W3M Worker {worker_data['worker']}",
                     "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
                     "attributes": [
@@ -82,7 +82,7 @@ def formJson(worker_data, date_data):
                             "value": 'SHA-256'
                         }
                     ],
-                    "content_url": "https://raw.githubusercontent.com/web3mining/nft-collection/main/v0/video.mp4",
+                    "content_url": "https://github.com/web3mining/nft-collection/main/video_active.mp4",
                     "content_type": "video/mp4"
                     }
 
