@@ -51,7 +51,7 @@ def formJson(worker_data, date_data):
                     "attributes": [
                         {
                             "trait_type": "Hashrate",
-                            "value": f"{convertHashrate(worker_data['hashrate'])} TH/s",
+                            "value": f"{convertHashrate(worker_data['hashrate1h'])} TH/s",
                         },
                         {
                             "trait_type": "Hashrate 24h",
@@ -59,11 +59,11 @@ def formJson(worker_data, date_data):
                         },
                         {
                             "trait_type": "Status",
-                            "value": "Active" if worker_data['active'] == 1 else 'Inactive'
+                            "value": "🟢 Active" if worker_data['active'] == 1 else '🔴 Inactive'
                         },
                         {
                             "trait_type": "Income",
-                            "value": "{:.8f} BTC/24h".format(round(date_data['income'][0]['income']/90, 9))
+                            "value": "{:.8f} BTC/24h".format(round(date_data['income'][0]['income']/100, 9))
                         },
                         {
                             "trait_type": "Date income",
@@ -72,6 +72,14 @@ def formJson(worker_data, date_data):
                         {
                             "trait_type": "Rewards type",
                             "value": 'fpps'
+                        },
+                        {
+                            "trait_type": "Consumption",
+                            "value": '386W ±10%'
+                        },
+                        {
+                            "trait_type": "Algorythm",
+                            "value": 'SHA-256'
                         }
                     ],
                     "content_url": "https://raw.githubusercontent.com/web3mining/nft-collection/main/v0/video.mp4",
