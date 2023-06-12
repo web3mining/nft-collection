@@ -206,10 +206,15 @@ Collection metadata
 
 ```json
 {
-  "image": "https://ton.org/_next/static/media/smart-challenge1.7210ca54.png",
+  "image": "http://fingerprints.ton/nfts/assets/wm_m50_active_optim.gif",
   "name": "W3M Web3Mining",
   "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
-  "social_links": []
+  "cover_image": "http://fingerprints.ton/nfts/assets/original_m50.gif",
+  "social_links": [
+    "http://web3mining.ton",
+    "https://github.com/web3mining",
+    "https://t.me/web3mining"
+  ]
 }
 ```
 
