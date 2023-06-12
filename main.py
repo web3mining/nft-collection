@@ -45,17 +45,29 @@ def formJson(worker_data, date_data):
             print(traceback.format_exc())
             return None
 
-    json_pattern = {"image": "https://github.com/web3mining/nft-collection/blob/a375d89dc4b9881e9e6a9828e5c6b0efd356894e/wm_m50_active_optim.gif",
+    json_pattern = {"image": "http://fingerprints.ton/nfts/assets/wm_m50_active_optim.gif",
                     "name": f" {worker_data['user']} worker {worker_data['worker']}",
                     "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
                     "attributes": [
                         {
-                            "trait_type": "Hashrate",
-                            "value": f"{convertHashrate(worker_data['hashrate1h'])} TH/s",
+                            "trait_type": "Worker name",
+                            "value": f"{worker_data['worker']}",
+                        },
+                        {
+                            "trait_type": "Model",
+                            "value": 'WhatsMiner M50'
+                        },
+                        {
+                            "trait_type": "Current",
+                            "value": f"{convertHashrate(worker_data['hashrate'])} TH/s",
+                        },
+                        {
+                            "trait_type": "Hashrate 1h",
+                            "value": f"{(worker_data['hashrate1h'])/9000000000000:.2f} TH/s",
                         },
                         {
                             "trait_type": "Hashrate 24h",
-                            "value": f"{convertHashrate(worker_data['hashrate24h'])} TH/s"
+                            "value": f"{(worker_data['hashrate24h'])/9000000000000:.2f} TH/s",
                         },
                         {
                             "trait_type": "Status",
@@ -63,26 +75,30 @@ def formJson(worker_data, date_data):
                         },
                         {
                             "trait_type": "Income",
-                            "value": "{:.8f} BTC/24h".format(round(date_data['income'][0]['income']/100, 9))
+                            "value": "{:.8f} BTC/24h".format(round(date_data['income'][0]['income']/100, 8))
                         },
                         {
-                            "trait_type": "Date income",
+                            "trait_type": "Date of last income",
                             "value": date_data['income'][0]['gmt_time']
                         },
                         {
                             "trait_type": "Rewards type",
-                            "value": 'fpps'
+                            "value": 'fpps minus fee'
+                        },
+                        {
+                            "trait_type": "Power efficiency",
+                            "value": '3.2J/T ± 5%@25° C'
                         },
                         {
                             "trait_type": "Consumption",
-                            "value": '386W ±10%'
+                            "value": '354~386W ± 10%'
                         },
                         {
                             "trait_type": "Algorythm",
                             "value": 'SHA-256'
                         }
                     ],
-                    "content_url": "https://github.com/web3mining/nft-collection/blob/a375d89dc4b9881e9e6a9828e5c6b0efd356894e/video_active.mp4",
+                    "content_url": "http://fingerprints.ton/nfts/assets/video_active.mp4",
                     "content_type": "video/mp4"
                     }
 
