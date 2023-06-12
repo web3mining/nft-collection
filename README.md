@@ -207,31 +207,63 @@ Collection metadata
 ```json
 {
   "image": "https://ton.org/_next/static/media/smart-challenge1.7210ca54.png",
-  "name": "TON Smart Challenge #2",
-  "description": "TON Smart Challenge #2 Winners Trophy",
+  "name": "W3M Web3Mining",
+  "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
   "social_links": []
 }
 ```
 
 Item metadata
 
-```json
-{
-  "name": "Worker #0001", // NFT's unique worker name
-  "description": "",
-  "image": "ipfs://*", // link to image
-  "attributes": [
-    // list of all the traits there are X attributes and up to N different values assigned to each of them, which give us over X~N trillion possible combinations
-    {
-      "trait_type": "Hashrate", // NFT's Worker Hashrate
-      "value": 120 // value in TH/s
-    },
-    {
-      "trait_type": "Power On Wall",
-      "value": 3480 // value in Watt
-    }
-  ]
-}
+```py
+    {"image": "http://fingerprints.ton/nfts/assets/wm_m50_active_optim.gif",
+    "name": f" {worker_data['user']} worker {worker_data['worker']}",
+    "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs. 1 NFT = 1/9 Worker",
+    "attributes": [
+      {
+        "trait_type": "Worker name",
+        "value": f"{worker_data['worker']}",
+      },
+      {
+        "trait_type": "Current",
+        "value": f"{convertHashrate(worker_data['hashrate'])} TH/s",
+      },
+      {
+        "trait_type": "Hashrate 1h",
+        "value": f"{(worker_data['hashrate1h'])/9000000000000:.2f} TH/s",
+      },
+      {
+        "trait_type": "Hashrate 24h",
+        "value": f"{(worker_data['hashrate24h'])/9000000000000:.2f} TH/s",
+      },
+      {
+        "trait_type": "Status",
+        "value": "🟢 Active" if worker_data['active'] == 1 else '🔴 Inactive'
+      },
+      {
+        "trait_type": "Income",
+        "value": "{:.8f} BTC/24h".format(round(date_data['income'][0]['income']/100, 9))
+      },
+      {
+        "trait_type": "Date of last income",
+        "value": date_data['income'][0]['gmt_time']
+      },
+      {
+        "trait_type": "Rewards type",
+        "value": 'fpps minus fee'
+      },
+      {
+        "trait_type": "Consumption",
+        "value": '386W ±10%'
+      },
+      {
+        "trait_type": "Algorythm",
+        "value": 'SHA-256'
+      }
+                    ],
+        "content_url": "http://fingerprints.ton/nfts/assets/video_active.mp4",
+        "content_type": "video/mp4"
+                    }
 ```
 
 ## Specification
@@ -464,6 +496,15 @@ Item metadata
 - ⚪ Inactive
 - 🟡 Unstable
 - 🔴 Dead
+
+* NFT Status
+
+```python
+  {
+  "trait_type": "Status",
+  "value": "🟢 Active" if worker_data['active'] == 1 else '🔴 Inactive'
+  }
+```
 
 | #   | Worker         | SN    | NFTs |
 | --- | -------------- | ----- | ---- |
