@@ -8,6 +8,10 @@
 
 ```
 
+# ADNL address
+
+http://vc7d3cftf7ojgyxcgumqu3mvonm426rowtfyriotkhesid6qfg5iggo.adnl
+
 # Disclamer
 
 While Bitcoin mining sounds appealing, the reality is that it’s difficult and expensive to actually do profitably. The extreme volatility of Bitcoin’s price adds more uncertainty to the equation.
