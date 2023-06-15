@@ -45,8 +45,8 @@ def formJson(worker_data, date_data):
             print(traceback.format_exc())
             return None
 
-    json_pattern = {"image": "http://fingerprints.ton/nfts/assets/wm_m50_active_optim.gif",
-                    "name": f" {worker_data['user']} worker {worker_data['worker']}",
+    json_pattern = {"image": "http://fingerprints.ton.run/nfts/assets/wm_m50_active_optim.gif",
+                    "name": f" {worker_data['user']} worker {worker_data['worker']} 1/9",
                     "description": "Web3Mining is a real BTC mining, where you choose the power and energy efficiency of the equipment. You don't have to worry about choosing a supplier, delivering and connecting equipment, its expensive maintenance and energy costs.",
                     "attributes": [
                         {
